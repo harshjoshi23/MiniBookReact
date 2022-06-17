@@ -1,14 +1,20 @@
 import React from "react";
-import ReactDOM  from "react-dom";
+import  ReactDOM  from "react-dom"
 
-function Greeting(){
-  return( <div>
-    <Person/>
-    <Message/>
-    </div> )
+function Booklist(){
+  return( <section><Book/></section> )
 }
 
-const Person =()=>{return(<h1>Harshvardhan</h1>)}
-const Message=()=>{return(<p>Stay High</p>)}
+const Book = () => {
+  return(<article>
+    <Image></Image>
+    <Title/>
+    <Authr/>
+  </article>)
+}
+const Image = () => {return(<img src="https://images-eu.ssl-images-amazon.com/images
+/I/71g2ednj0JL._AC_UL906_SR906,600_.jpg" alt=""/>)}
+const Title = () => {return(<h1>The Psychology of Money</h1>)}
+const Authr = () => {return(<h4>Morgan Housel</h4>)}
 
-ReactDOM.render(<Greeting/>, document.getElementById("root") )
+ReactDOM.render(<Booklist/>, document.getElementById("root") )
