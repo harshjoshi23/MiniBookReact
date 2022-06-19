@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom";
 
 //CSS
@@ -24,7 +24,12 @@ function Booklist() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero soluta
+          magni illo eligendi facilis quisquam!
+        </p>
+      </Book>
       <Book
         img={SecondBook.img}
         title={SecondBook.title}
@@ -33,13 +38,14 @@ function Booklist() {
     </section>
   );
 }
-const Book = (props) => {
+const Book = ({ img, author, title, children }) => {
   return (
     <article className="book">
       {/*Accessing the props */}
-      <img src={props.img} alt="" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      {children}
     </article>
   );
 };
