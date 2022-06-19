@@ -1,32 +1,47 @@
 import React from "react";
-import  ReactDOM  from "react-dom"
+import ReactDOM from "react-dom";
 
 //CSS
-import './index.css'
+import "./index.css";
 
-function Booklist(){
-  return( <section className="booklist">
-  <Book/>
-  <Book/>
-  <Book/>
-  <Book/></section> )
+//Creating objects
+const firstBook = {
+  img: "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UL480_QL65_.jpg",
+  title: "Rich Dad Poor Dad:",
+  author: "Robert T. Kiyosaki",
+};
+const SecondBook = {
+  img:
+    "https://images-na.ssl-images-amazon.com/images/I/71GqMTCFWtL._AC._SR360,460.jpg",
+  title: "Extreme Ownership: How U.S. Navy SEALs Lead ",
+  author: "ocko Willink",
+};
+
+function Booklist() {
+  return (
+    <section className="booklist">
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={SecondBook.img}
+        title={SecondBook.title}
+        author={SecondBook.author}
+      />
+    </section>
+  );
 }
+const Book = (props) => {
+  return (
+    <article className="book">
+      {/*Accessing the props */}
+      <img src={props.img} alt="" />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
+    </article>
+  );
+};
 
-const Book = () => {
-  return(<article className="book">
-    <Image/>
-    <Title/>
-    <Authr/>
-  </article>)
-}
-const Image = () => {return(<img src="https://m.media-amazon.com/images/I/81bsw6fnUiL
-._AC_UL480_QL65_.jpg" alt=""/>)}
-const Title = () => {return(<h1>Rich Dad Poor Dad: What the Rich Teach Their Kids
-   About Money That the Poor and Middle Class Do Not!</h1>)}
-
-// Using inline CSS in the React
-const Authr = () => {return(<h4 style={{
-  color:'#617d98',fontSize:'0.75rem',marginTop:'0.25rem'
-}}>Robert T. Kiyosaki</h4>)}
-
-ReactDOM.render(<Booklist/>, document.getElementById("root") )
+ReactDOM.render(<Booklist />, document.getElementById("root"));
