@@ -1,51 +1,60 @@
-import React, { Children } from "react";
+// import React, { Children } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
 //CSS
 import "./index.css";
 
-//Creating objects
-const firstBook = {
-  img: "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UL480_QL65_.jpg",
-  title: "Rich Dad Poor Dad:",
-  author: "Robert T. Kiyosaki",
-};
-const SecondBook = {
-  img:
-    "https://images-na.ssl-images-amazon.com/images/I/71GqMTCFWtL._AC._SR360,460.jpg",
-  title: "Extreme Ownership: How U.S. Navy SEALs Lead ",
-  author: "ocko Willink",
-};
-
+//Creating array of objects
+const books = [
+  {
+    img: "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UL480_QL65_.jpg",
+    title: "Rich Dad Poor Dad:",
+    author: "Robert T. Kiyosaki",
+  },
+  {
+    img:
+      "https://images-na.ssl-images-amazon.com/images/I/71GqMTCFWtL._AC._SR360,460.jpg",
+    title: "Extreme Ownership: How U.S. Navy SEALs Lead ",
+    author: "ocko Willink",
+  },
+];
 function Booklist() {
   return (
     <section className="booklist">
-      <Book
+      {books.map((book) => {
+        const { img, title, author } = book;
+        // console.log(book);
+        //Can return whatever we want
+
+        return (
+          <div>
+            <h3>{title} </h3>
+            <h6>{author} </h6>
+          </div>
+        );
+      })}
+
+      {/* <Book
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero soluta
-          magni illo eligendi facilis quisquam!
-        </p>
-      </Book>
+      ></Book>
       <Book
         img={SecondBook.img}
         title={SecondBook.title}
         author={SecondBook.author}
-      />
+      /> */}
     </section>
   );
 }
-const Book = ({ img, author, title, children }) => {
+const Book = ({ img, author, title }) => {
   return (
     <article className="book">
       {/*Accessing the props */}
       <img src={img} alt="" />
       <h1>{title}</h1>
       <h4>{author}</h4>
-      {children}
     </article>
   );
 };
