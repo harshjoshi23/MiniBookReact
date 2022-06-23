@@ -1,7 +1,7 @@
 //Not default export
 //Named export - CURRENTLY using it
 // We need to import it back to the index.js
-export const books = [
+export const data = [
   {
     id: 1,
     img: "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UL480_QL65_.jpg",
